@@ -1,0 +1,19 @@
+<div class="col-md-12">
+  <%= simple_form_for @pin do |f| %>
+  <% if @pin.errors.any? %>
+  <ul>
+    <% @pin.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.input :title, input_html: {class: 'form-control' }%>
+  </div>
+  <div class="form-group">
+    <%= f.input :description, input_html: {class: 'form-control' } %>
+  </div>
+  <%= f.submit "Go" , :disable_with => 'Submitting...'%>
+  <% end %>
+</div>

@@ -1,0 +1,6 @@
+<div class="pin">
+  <%= link_to("编辑照片", edit_pin_path, class: "btn btn-default pull-right")%>
+  <%= link_to("删除照片", pin_path, class: "btn btn-default pull-right",method: :delete, data: {confirm: "你确定要删除吗"}) %>
+</div>
+<h1><%= @pin.title %></h1>
+<p><%= @pin.description %></p>
