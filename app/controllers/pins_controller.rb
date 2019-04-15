@@ -28,7 +28,7 @@ class PinsController < ApplicationController
 
   def update
     @pin = Pin.find(params[:id])
-    if @pin.update
+    if @pin.update(pin_params)
     redirect_to pins_path
   else
     render :edit
@@ -44,6 +44,6 @@ class PinsController < ApplicationController
   private
 
   def pin_params
-    params.require(:pin).permit(:title, :description)
+    params.require(:pin).permit(:title, :description, :image)
   end
 end
