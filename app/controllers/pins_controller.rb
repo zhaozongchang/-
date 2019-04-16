@@ -1,5 +1,5 @@
 class PinsController < ApplicationController
-  before_action :authenticate_user! , only: [:new, :create]
+  before_action :authenticate_user! , only: [:new, :create, :edit, :update, :descroy]
   def index
     @pins = Pin.all.order("created_at DESC")
   end
@@ -39,6 +39,18 @@ class PinsController < ApplicationController
     @pin = Pin.find(params[:id])
     @pin.destroy
     redirect_to pins_path, alert: "删除成功"
+  end
+
+  def upvote
+    @pin = Pin.find(params[:id])
+    @pin.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @pin = Pin.find(params[:id])
+    @pin.downvote_by current_user
+    redirect_to :back
   end
 
   private

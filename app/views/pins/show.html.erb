@@ -14,8 +14,15 @@
               添加者：<%= @pin.user.email %>
             </div>
             <div class="col-md-6 pull-right">
+              <%= link_to like_pin_path(@pin), method: :put, class: "btn btn-default" do %>
+              <i class="fa fa-heart">
+                <%= @pin.get_upvotes.size %>
+              </i>
+              <% end %>
+              <% if user_signed_in? %>
               <%= link_to("编辑照片", edit_pin_path, class: "btn btn-default pull-right")%>
               <%= link_to("删除照片", pin_path, class: "btn btn-default pull-right",method: :delete, data: {confirm: "你确定要删除吗"}) %>
+              <% end %>
             </div>
           </div>
         </div>

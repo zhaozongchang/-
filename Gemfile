@@ -39,6 +39,8 @@ gem 'simple_form'
 gem 'devise'
 gem "paperclip", "~> 6.0.0"
 gem 'masonry-rails'
+gem 'acts_as_votable', '~> 0.10.0'
+gem 'font-awesome-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
